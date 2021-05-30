@@ -5,11 +5,14 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  name: Category1
-  description: MyString12345
-  id: 150  
+  name: Task1
+  description: SampleTask1
+  deadline: Date.today
+  category_id: 150  
+  
 
-two:
-  name: Category2
-  description: MyString12345
-  id: 200
+two:  
+  name: Task2
+  description: SampleTask2
+  deadline: Date.today
+  category_id: 200

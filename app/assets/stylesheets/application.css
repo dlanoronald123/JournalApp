@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /*
+ *= require font-awesome
+ */
+
+
+ html{
+     background-color: rgb(161, 161, 161);
+ }
