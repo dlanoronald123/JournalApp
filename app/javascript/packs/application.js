@@ -13,3 +13,16 @@ import "stylesheets/application"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+
+function hideFlash() {
+    setInterval(function() {
+      document.querySelector('#flash').style.display = "none";
+    }, 4000);
+  
+    
+  }
+  
+  hideFlash();
+  

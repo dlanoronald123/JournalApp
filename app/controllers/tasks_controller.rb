@@ -14,6 +14,7 @@ class TasksController < ApplicationController
         if @task.valid?
         @task.save
         redirect_to category_tasks_path(@category)
+        flash[:notice] = "New task added"
         else 
             render :new
         end
@@ -41,6 +42,7 @@ class TasksController < ApplicationController
     def destroy
         @task = @category.tasks.find(params[:id])
         @task.destroy
+        flash[:alert] = "Task deleted"
         redirect_to category_tasks_path(@category)
     end
 

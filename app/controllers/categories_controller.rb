@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
         if @category.valid?
             @category.save
             redirect_to categories_path(@category)
+            flash[:notice] = "New category added"
         else
             render :new
         end
@@ -39,6 +40,7 @@ class CategoriesController < ApplicationController
     def destroy
         @category = Category.find(params[:id])
         @category.destroy
+        flash[:alert] = "Category deleted"
         redirect_to categories_path
     end
     private
