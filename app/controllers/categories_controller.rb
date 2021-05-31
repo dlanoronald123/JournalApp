@@ -32,6 +32,7 @@ class CategoriesController < ApplicationController
         if @category.update(category_params)
             @category.save
             redirect_to categories_path
+            flash[:notice] = "Category updated"
         else
             render :edit
         end

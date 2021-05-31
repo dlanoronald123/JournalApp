@@ -34,6 +34,7 @@ class TasksController < ApplicationController
         if @task.update(task_params)
             @task.save
             redirect_to category_task_path(@category, @task)
+            flash[:notice] = "Task updated"
         else
             render :edit
         end
