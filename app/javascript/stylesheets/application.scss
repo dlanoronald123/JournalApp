@@ -1,6 +1,9 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
-//custom styles here
+
+html{
+    background-color: rgb(97, 96, 96);
+}
 
 @import "tailwindcss/utilities";

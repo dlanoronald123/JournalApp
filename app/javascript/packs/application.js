@@ -21,7 +21,6 @@ function hideFlash() {
       document.querySelector('#flash').style.display = "none";
     }, 4000);
   
-    
   }
   
   hideFlash();
