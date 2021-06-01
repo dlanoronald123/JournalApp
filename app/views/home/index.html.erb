@@ -1,16 +1,13 @@
- 
-<div class="flex flex-col-reverse sm:flex-row jusitfy-between items-center py-12">
-    <div class="sm:w-2/5 flex flex-col items-center sm:items-start text-center sm:text-left">
-        <h1 class="uppercase text-6xl text-blue-900 font-bold leading-none tracking-wide mb-2">JOURNAL</h1>
-        <p class="text-white leading-relaxed mb-12">Manage tasks within the tip fo your fingers.</p>
-
-    <%= link_to "Get Started", categories_path, class:"inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2" %>
-
-    </div>
-    <div class="mb-16 sm:mb-0 mt-8 sm:mt-0 sm:w-3/5 sm:pl-12">
-        <%= image_tag("Schedule.gif", :alt => "rss feed") %>
-        <figcaption><a href="https://storyset.com/work", class = "w-full text-blue-800 font-big-shoulders">Illustration by Freepik Storyset</a></figcaption>
-    </div>
-</div>
-
-
+<section class="min-w-screen flex items-center p-1 lg:p-10 overflow-hidden relative">
+        <div class="w-full md:w-1/2 text-right pr-24">
+            <div class="mb-10 md:mb-20 text-gray-600 font-light">
+                    <h1 class="text-7xl text-yellow-500 font-black tracking-wide mb-5 drop-shadow-lg">JOURNAL</h1>
+             
+                <p class="text-white leading-relaxed mb-5 text-3xl italic">Manage tasks within the tips fo your fingers.</p>
+                <%= link_to "Get Started", categories_path, class:"inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2">
+            <%= image_tag("Schedule.gif", :alt => "rss feed") %>
+        </div>
+</section>
