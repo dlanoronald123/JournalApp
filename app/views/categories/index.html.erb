@@ -1,37 +1,16 @@
+<% if @categories.count == 0 %>
+    <br/>
+    <div class="flex justify-center items-center">
+        <h1>Manage tasks now!</h1>
+        <%= image_tag("Work in progress.gif", :alt => "rss feed") %>
+    </div>
+<% else %>
 
 <section class="leading-7 max-w-6xl py-1 px-8 mx-14 my-5">
-    <h1 class="text-white pl-12 sm:text-4xl font-bold">CATEGORIES</h1>
-
-
     <% @categories.each do |category| %>
-        <section class="leading-7 bg-yellow-500 max-w-6xl py-1 px-8 mx-14 shadow-2xl rounded-lg my-5 border-3 border-gray-800">
-            <div class="max-w-6xl px-4 mx-auto border-solid lg:px-12">
-            
-                <div class="flex flex-col items-start leading-7 text-gray-900 border-0 border-gray-200 lg:items-center lg:flex-row">
-                    <div class="box-border flex-1 text-center border-solid sm:text-left">
-                        <h1 class="m-0 font-semibold leading-tight tracking-tight text-left text-black border-0 border-gray-200 sm:text-4xl">
-                            <%= category.name%>
-                        </h1>
-                        <p class="mt-2 text-xl text-left text-gray-900 border-0 border-gray-200 sm:text-xl">
-                            <%= category.description%>
-                        </p>
-                    </div>
-                        <h1 class="pr-4">Date Created: <%= category.created_at%></h1>
-                        <%= link_to category, method: :get, class: "mr-5 text-2xl  text-white hover:text-blue-800" do %><i class="fa fa-eye"></i><%end%>
-                        <%= link_to edit_category_path(category), class: "mr-5 text-2xl  text-white hover:text-green-800" do %><i class="fa fa-cog"></i><%end%>
-                        <%= link_to category_path(category), method: :delete, class: "mr-5 text-2xl  text-white hover:text-red-800" do %><i class="fa fa-trash"></i><% end %>
-                </div>
-            </div>
-        </section> 
-    <% end %>
-<br/>
-<h1 class="text-white pl-12 sm:text-4xl font-bold">Today's Tasks!</h1>
-<br/>
-
-<section class="h-48 flex flex-wrap content-start justify-center max-w-7xl">  
-      <% @categories.each do |category| %>
-          <% category.tasks.all.select do |task| %>
+        <% category.tasks.all.select do |task| %>
             <% if task.deadline == Date.today %>
+             <h1 class="text-white pl-12 sm:text-4xl font-bold">Today's Tasks!</h1>
               <div class="rounded-lg transform transition duration-500 hover:scale-95 ">
                 <div class="bg-gradient-to-t from-black via-gray-800 to-gray-800 w-80 border-l-8 border-yellow-500 rounded-lg flex mx-2.5 my-2.5">
                     <div class="w-1/3 pt-6 flex justify-center text-yellow-700 text-5xl pl-4">
@@ -48,10 +27,39 @@
                 </div>
               </div>            
             <% end %>
-          <% end %>
         <% end %>
-      </div>
-  </section>
+    <% end %>
+</section>
+
+
+
+<section class="leading-7 max-w-6xl py-1 px-8 mx-14 my-5">
+    <h1 class="text-white pl-12 sm:text-4xl font-bold">CATEGORIES</h1>
+        <% @categories.each do |category| %>
+            <section class="leading-7 bg-yellow-500 max-w-6xl py-1 px-8 mx-14 shadow-2xl rounded-lg my-5 border-3 border-gray-800">
+                <div class="max-w-6xl px-4 mx-auto border-solid lg:px-12">
+                
+                    <div class="flex flex-col items-start leading-7 text-gray-900 border-0 border-gray-200 lg:items-center lg:flex-row">
+                        <div class="box-border flex-1 text-center border-solid sm:text-left">
+                            <h1 class="m-0 font-semibold leading-tight tracking-tight text-left text-black border-0 border-gray-200 sm:text-4xl">
+                                <%= category.name%>
+                            </h1>
+                            <p class="mt-2 text-xl text-left text-gray-900 border-0 border-gray-200 sm:text-xl">
+                                <%= category.description%>
+                            </p>
+                        </div>
+                            <h1 class="pr-4">Date Created: <%= category.created_at%></h1>
+                            <%= link_to category, method: :get, class: "mr-5 text-2xl  text-white hover:text-blue-800" do %><i class="fa fa-eye"></i><%end%>
+                            <%= link_to edit_category_path(category), class: "mr-5 text-2xl  text-white hover:text-green-800" do %><i class="fa fa-cog"></i><%end%>
+                            <%= link_to category_path(category), method: :delete, class: "mr-5 text-2xl  text-white hover:text-red-800" do %><i class="fa fa-trash"></i><% end %>
+                    </div>
+                </div>
+            </section> 
+        <% end %>
+</section>
+
+
+<% end %>
 
 
 

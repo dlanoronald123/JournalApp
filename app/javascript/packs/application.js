@@ -17,11 +17,8 @@ ActiveStorage.start()
 
 
 function hideFlash() {
-    setInterval(function() {
-      document.querySelector('#flash').style.display = "none";
-    }, 4000);
-  
+    setInterval(function() {document.querySelector('#flash').style.display = "none";}, 4000);
   }
   
-  hideFlash();
+hideFlash();
   

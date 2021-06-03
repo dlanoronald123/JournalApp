@@ -56,4 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rexml', '~> 3.2', '>= 3.2.4'
+
 gem "font-awesome-rails"
+
+gem 'devise', '~> 4.8'
