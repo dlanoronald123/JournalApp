@@ -6,10 +6,12 @@
 #
 one:
   name: Category1
-  description: MyString12345
-  id: 150  
+  description: SampleDescription
+  id: 750  
+  user_id: 100
 
 two:
   name: Category2
-  description: MyString12345
-  id: 200
+  description: SampleDescription
+  id: 850
+  user_id: 150

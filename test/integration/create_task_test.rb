@@ -1,7 +1,12 @@
 require "test_helper"
 
 class CreateTaskTest < ActionDispatch::IntegrationTest
-  setup do
+  include Devise::Test::IntegrationHelpers
+
+  def setup
+    get new_user_session_path
+    sign_in users(:one)
+    post user_session_path
     @category = categories(:one)
     @task = tasks(:one)
   end

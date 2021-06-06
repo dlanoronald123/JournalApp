@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+   
+    include Devise::Controllers::Helpers 
+    before_action :authenticate_user!
     before_action :get_category 
 
     def index
@@ -14,7 +17,7 @@ class TasksController < ApplicationController
         if @task.valid?
         @task.save
         redirect_to category_tasks_path(@category)
-        flash[:notice] = "New task added"
+        flash[:notice] = "New task has been successfully added"
         else 
             render :new
         end
@@ -34,7 +37,7 @@ class TasksController < ApplicationController
         if @task.update(task_params)
             @task.save
             redirect_to category_task_path(@category, @task)
-            flash[:notice] = "Task updated"
+            flash[:notice] = "Task has been successfully updated"
         else
             render :edit
         end
@@ -43,7 +46,7 @@ class TasksController < ApplicationController
     def destroy
         @task = @category.tasks.find(params[:id])
         @task.destroy
-        flash[:alert] = "Task deleted"
+        flash[:alert] = "Task has been successfully deleted"
         redirect_to category_tasks_path(@category)
     end
 

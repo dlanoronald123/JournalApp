@@ -7,12 +7,13 @@
 one:
   name: Task1
   description: SampleTask1
-  deadline: Date.today
-  category_id: 150  
+  deadline: Date.today.strftime(" %B %d, %Y")
+  category_id: 750  
+  
   
 
 two:  
   name: Task2
   description: SampleTask2
-  deadline: Date.today
-  category_id: 200
+  deadline: Date.today.strftime(" %B %d, %Y")
+  category_id: 850

@@ -1,12 +1,17 @@
 require "test_helper"
 
 class TasksControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
 
   def setup
+    get new_user_session_path
+    sign_in users(:one)
+    post user_session_path
     @category = categories(:one)
     @task = tasks(:one)
   end
 
+  
   test 'should get all tasks' do
     get category_tasks_path(@category)
     assert_response :success

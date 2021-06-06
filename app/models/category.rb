@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
+    belongs_to :user
     has_many :tasks, dependent: :destroy
-    validates :name, presence: true
-    validates :description, presence: true
+    validates :name, presence: true, uniqueness: {scope: :user_id}
+    validates :description, presence: true 
 end
