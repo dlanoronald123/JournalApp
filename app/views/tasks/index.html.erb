@@ -24,6 +24,12 @@
                         <i class="fa fa-thumbtack"></i>
                     </div>
                     <div class="w-full p-1 pl-4 h-full">
+
+                    <span><% if task.deadline == Date.today %>
+                                <div class = "w-16 my-1 rounded text-xs text-red-400 ring ring-red-400 p-1">Due Date!</div>
+                            <% else task.deadline == !Date.today%>
+                                <div class = "w-20 my-1 rounded text-xs text-yellow-400 ring ring-yellow-400 p-1">In Progress..</div>
+                            <%end%></span>
                         <h1 class="font-bold text-white italic text-3xl"><%= task.name %></h1>
                         <p class="py-1 text-white text-xl"><%= task.description %></p>
                         <h4 class="py-1 text-sm text-white">Deadline: <%= task.deadline.strftime(" %B %d, %Y") %></h4>

@@ -1,4 +1,4 @@
-<br/>
+
 <section class="leading-7 bg-yellow-500 max-w-6xl py-1 px-8 mx-14 shadow-2xl rounded-lg my-5 border-3 border-gray-800">
     <div class="max-w-6xl px-4 mx-auto border-solid lg:px-12">
     
@@ -12,10 +12,21 @@
                 <h1 class="pr-10 text-2xl">Date Created: <%= @category.created_at.strftime("%A, %B %d, %Y")%></h1>
 
                 <%= link_to edit_category_path(@category), class:"pl-4 text-white text-3xl hover:text-green-800" do %><i class="fa fa-cog"></i><%end%>
-                <%= link_to new_category_task_path(@category), class:"pl-4 text-white text-3xl hover:text-red-800" do %><i class="fa fa-plus"></i><%end%>
+                <%= link_to new_category_task_path(@category), class:"pl-4 text-white text-3xl hover:text-blue-800" do %><i class="fa fa-plus"></i><%end%>
         </div>
     </div>
-</section><br/>
+</section>
+
+<% if @tasks.count == 0 %>
+<div class="container max-w-md mx-auto h-full flex justify-center flex-col rounded-lg">
+    <div class="relative xl:block text-center ">
+        <%= link_to "Add Task now!", new_category_task_path(@category), class:"text-white text-4xl font-bold hover:text-blue-200" %>
+        <%= image_tag("add-notes-animate.svg", :alt => "rss feed") %>
+    </div> 
+</div>
+
+<% else %>
+
 
 <section class="h-48 flex flex-wrap content-start justify-center">
     <% @tasks.each do |task| %> 
@@ -25,6 +36,11 @@
                         <i class="fa fa-thumbtack"></i>
                     </div>
                     <div class="w-full p-1 pl-4 h-full">
+                      <span><% if task.deadline == Date.today %>
+                                <div class = "w-16 my-1 rounded text-xs text-red-400 ring ring-red-400 p-1">Due Date!</div>
+                            <% else task.deadline == !Date.today%>
+                                <div class = "w-20 my-1 rounded text-xs text-yellow-400 ring ring-yellow-400 p-1">In Progress..</div>
+                            <%end%></span>
                         <h1 class="font-bold text-white italic text-3xl"><%= task.name %></h1>
                         <p class="py-1 text-white text-xl"><%= task.description %></p>
                         <h4 class="py-1 text-sm text-white">Deadline: <%= task.deadline.strftime(" %B %d, %Y") %></h4>
@@ -38,6 +54,7 @@
 </section>        
 
 
+ <% end %>
 
 
 

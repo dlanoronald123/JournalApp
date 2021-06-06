@@ -6,15 +6,25 @@
     <div class="absolute -right-4 -bottom-4 bg-yellow-600 h-full w-full rounded-xl"></div>
     <div class="relative bg-gray-800 text-gray-50 rounded-xl p-8 space-y-7">
       <div class="h-2 w-20 bg-yellow-600"></div>
-      <div class="text-5xl font-extrabold text-white"><%= @task.name %></div>
-      <h1 class="leading-snug text-gray-400"><%= @task.description %></h1>
-      <p class="leading-snug text-gray-400"></i>Deadline: <%= @task.deadline.strftime("%A, %B %d, %Y") %></p>
+
+            <% if !@task.done %>
+                <div class = "w-20 rounded text-xs text-white ring ring-yellow-400 ring-offset-2 p-1">In Progress</div>
+            <% else @task.done%>
+                <div class = "w-20 rounded text-xs text-white ring ring-green-400 ring-offset-2 p-1">Completed</div>
+            <%end%>
+            
+      <div class="text-5xl font-extrabold text-white truncate"><%= @task.name %></div>
+      <h1 class="leading-snug text-gray-400 truncate"><%= @task.description %></h1>
+      <p class="leading-snug text-gray-400"></i>Deadline: <%= @task.deadline.strftime("%B %d, %Y") %></p>
 
       <a href="#" class=" text-yellow-400 font-bold tracking-wide flex">
-        <span>Learn More</span>
+        <span>Completed</span>
         <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg></a>
+
+         
+            
     </div>
   </div>
 

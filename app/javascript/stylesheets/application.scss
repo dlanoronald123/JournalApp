@@ -7,4 +7,14 @@ html{
     #4f5152;
 }
 
+#title{
+    -webkit-text-fill-color: rgb(218, 140, 39); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 255);
+}
+
+#dot{
+  -webkit-text-fill-color: rgb(18, 15, 75); /* Will override color (regardless of order) */
+}
+
 @import "tailwindcss/utilities";
