@@ -1,19 +1,18 @@
 
-<br/>
-<br/>
-
+<br/><br/>
 <div class="container max-w-md mx-auto xl:max-w-3xl h-full flex bg-transparent rounded-lg  overflow-hidden">
+  
   <div class="relative hidden xl:block xl:w-1/2 h-full">
       <%= image_tag("add-tasks-animate.svg", :alt => "rss feed") %>
-  </div> 
+  </div>
+
   <div class="w-full xl:w-1/2 p-8">
     <%= form_with scope: :task, model: [@category, @task], local:true do |f| %>
-    
       <div class="mb-4 mt-3">
         <label for="name" class="mr-10 font-bold text-white"><%= f.label :name %></label>
         <%= f.text_field :name, class:"text-md appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10" ,placeholder: "Name" %>
         <% @task.errors.full_messages_for(:name).each do |message| %>
-              <div><%= message %></div>
+          <div><%= message %></div>
         <% end %>
       </div>
 
@@ -21,23 +20,23 @@
         <label for="description" class="mr-6 font-bold text-white"><%= f.label :description %></label>
         <%= f.text_field :description, class: "text-md appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10",placeholder: "Description" %>
         <% @task.errors.full_messages_for(:description).each do |message| %>
-              <div><%= message %></div>
+          <div><%= message %></div>
         <% end %>
       </div>
 
-        <div class="mb-6 mt-6">
+      <div class="mb-6 mt-6">
         <label for="description" class="mr-6 font-bold text-white"><%= f.label :deadline %></label>
         <%= f.date_field :deadline, class: "text-md appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10",placeholder: "Select Date" %>
         <% @task.errors.full_messages_for(:description).each do |message| %>
-              <div><%= message %></div>
+          <div><%= message %></div>
         <% end %>
       </div>
 
       <div class="flex w-full mt-8">
-            <%= f.submit 'Create', class: "px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
+        <%= f.submit 'Create', class: "px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
       </div>
-
     <% end %>
   </div>
+  
 </div>
 

@@ -16,7 +16,7 @@ class CreateTaskTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_difference '@category.tasks.count', 1 do
-        post category_tasks_path(@category), params:{task: {name:"Task1", description: "SampleTask1", deadline: Date.today, journal_id: 1}}
+        post category_tasks_path(@category), params:{task: {name:"Task1", description: "SampleTask1", deadline: Date.today.strftime("%B %d, %Y"), journal_id: 1}}
         assert_response :redirect
     end
     follow_redirect!
@@ -28,7 +28,7 @@ end
     assert_response :success
 
     assert_difference "Task.count" do
-      post category_tasks_path(@category), params: {task: {name:"Task1", description: "SampleTask1", deadline: Date.today}}
+      post category_tasks_path(@category), params: {task: {name:"Task1", description: "SampleTask1", deadline: Date.today.strftime("%B %d, %Y")}}
       assert_response :redirect  
     end
     follow_redirect!

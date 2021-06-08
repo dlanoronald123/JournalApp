@@ -7,7 +7,7 @@
 one:
   name: Task1
   description: SampleTask1
-  deadline: Date.today.strftime(" %B %d, %Y")
+  deadline: June 1, 2021
   category_id: 750  
   
   
@@ -15,5 +15,5 @@ one:
 two:  
   name: Task2
   description: SampleTask2
-  deadline: Date.today.strftime(" %B %d, %Y")
+  deadline: June 2, 2020
   category_id: 850
