@@ -9,7 +9,7 @@
                 </h1>
             
             </div>
-                <h1 class="pr-10 text-2xl">Date Created: <%= @category.created_at.strftime("%A, %B %d, %Y")%></h1>
+                <h1 class="pr-10 text-2xl font-bold">Date Created: <%= @category.created_at.strftime("%A, %B %d, %Y")%></h1>
 
                 <%= link_to edit_category_path(@category), class:"pl-4 text-white text-3xl hover:text-green-800" do %><i class="fa fa-cog"></i><%end%>
                 <%= link_to new_category_task_path(@category), class:"pl-4 text-white text-3xl hover:text-blue-800" do %><i class="fa fa-plus"></i><%end%>

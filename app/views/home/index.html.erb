@@ -1,19 +1,40 @@
 
 
 <section class="min-w-screen flex items-center p-1 lg:p-10 overflow-hidden relative">
-        <div class="w-full md:w-1/2 text-right pr-24">
-            <div class="mb-10 md:mb-20 text-gray-600 font-light">
-                <h1 id="title", class="text-7xl text-yellow-600 font-black tracking-wide mb-5 drop-shadow-lg">Organizer<span id="dot" class="text-indigo-600 text-3xl font-black">.</span></h1>          
-                <p class="text-white leading-relaxed text-3xl italic">Be productive, stay motivated.</p>
-                <p class="text-white leading-relaxed mb-5 text-3xl italic">Manage your tasks in one place.</p>
-                <% if user_signed_in?%>
-                <%= link_to "Get Started", categories_path, class:"inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
-                <% else %> 
-                <%= link_to "Get Started", new_user_registration_path, class:"inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
-                <% end %>
-            </div>
-        </div>
-        <div class="relative hidden xl:block xl:w-1/2 h-full w-full">
-            <%= image_tag("Schedules.gif", :alt => "rss feed") %>
-        </div>
+   <div class="w-full md:w-1/2 text-right pr-24">
+      <div class="mb-10 md:mb-20 text-gray-600 font-light">
+         <h1 id="title", class="text-7xl text-yellow-600 font-black tracking-wide mb-5 drop-shadow-lg">Organizer<span id="dot" class="text-indigo-600 text-3xl font-black">.</span></h1>          
+         <p class="text-white leading-relaxed text-3xl italic">Be productive, stay motivated.</p>
+         <p class="text-white leading-relaxed mb-5 text-3xl italic">Manage your tasks in one place.</p>
+         <% if user_signed_in?%>
+         <%= link_to "Get Started", categories_path, class:"inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
+         <% else %> 
+         <%= link_to "Get Started", new_user_registration_path, class:"inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
+         <% end %>
+      </div>
+   </div>
+      <div class="relative hidden xl:block xl:w-1/2 h-full w-full">
+         <%= image_tag("Schedules.gif", :alt => "rss feed") %>
+      </div>
 </section>
+
+
+
+<div class="flex items-center justify-center text-white font-semibold">
+  <h1 class="px-2 font-sans">© 2021 Ronald Magno</h1>
+  <div class= "flex justify-end">
+    <a href="mailto:dlanoronald123@gmail.com?subject = Feedback&body = Message" class="fill-current text-white mr-4 text-xl" >
+        <i class="fas fa-envelope-square"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/ronald-magno-42051780/" target="_blank" class="fill-current text-white mr-4 text-xl">
+       <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/dlanoronald123" target="_blank" class="fill-current text-white mr-4 text-xl">
+        <i class="fab fa-github-square" ></i>
+    </a>
+  </div>
+</div>
+
+
+
+
