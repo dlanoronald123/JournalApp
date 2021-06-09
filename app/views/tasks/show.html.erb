@@ -6,20 +6,18 @@
       <div class="relative bg-gray-800 text-gray-50 rounded-xl p-8 space-y-7">
         <div class="h-2 w-20 bg-yellow-600"></div>
 
-              <span><% if @task.deadline == Date.today %>
-                        <div class = "w-16 rounded text-xs text-red-400 ring ring-red-400 p-1 mt-4">Due Date!</div>
-                    <% else @task.deadline == !Date.today%>
-                        <div class = "w-20 rounded text-xs text-white ring ring-green-400 p-1 mt-4">In Progress</div>
-                    <%end%></span>
+          <span><% if @task.deadline == Date.today %>
+                      <div class = "w-16 mt-4 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Due Date!</div>
+                  <% elsif @task.deadline < Date.today%>
+                      <div class = "w-16 mt-4 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Past Due!</div>
+                  <% else @task.deadline > Date.today%>
+                      <div class = "w-20 mt-4 rounded text-xs text-center text-white ring ring-green-400 p-1">In Progress</div>
+                  <%end%></span>
               
         <div class="text-5xl font-extrabold text-white truncate"><%= @task.name %></div>
           <h1 class="leading-snug text-gray-400 truncate"><%= @task.description %></h1>
-          <p class="leading-snug text-gray-400"></i>Deadline: <%= @task.deadline.strftime("%B %d, %Y") %></p>
-          <a href="#" class=" text-yellow-400 font-bold tracking-wide flex">
-            <span>Completed</span>
-          <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg></a>    
+          <p class="leading-snug text-gray-400"></i>Deadline : <%= @task.deadline.strftime("%B %d, %Y") %></p>
+          
         </div>
       </div>
   </div>

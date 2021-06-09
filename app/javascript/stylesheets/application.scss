@@ -8,10 +8,18 @@ html{
 }
 
 #title{
-    -webkit-text-fill-color: rgb(201, 122, 18); /* Will override color (regardless of order) */
+  -webkit-text-fill-color: rgb(201, 122, 18); /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgba(255, 255, 255, 0.685);
 }
+
+#title1{
+  -webkit-text-fill-color: rgb(255, 255, 255); /* Will override color (regardless of order) */
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: rgb(201, 122, 18);
+font-weight: 900;
+}
+
 
 #dot{
   -webkit-text-fill-color: rgb(18, 15, 75); /* Will override color (regardless of order) */
