@@ -19,7 +19,7 @@
 <% if @tasks.count == 0 %>
 <div class="container max-w-md mx-auto h-full flex justify-center flex-col rounded-lg">
     <div class="relative xl:block text-center ">
-        <%= link_to "Add Task now!", new_category_task_path(@category), class:"text-white text-4xl font-bold hover:text-blue-200" %>
+        <%= link_to "Add Task now!", new_category_task_path(@category), class:"text-yellow-500 text-4xl font-bold hover:text-gray-800" %>
         <%= image_tag("add-notes-animate.svg", :alt => "rss feed") %>
     </div> 
 </div>
