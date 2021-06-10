@@ -1,27 +1,34 @@
 
-<br/><br/><br/><br/>
+<br/><br/><br/>
 <div class="flex items-center justify-center">
   <div class="relative w-72 transform transition duration-500 hover:scale-95">
     <div class="absolute -right-4 -bottom-4 bg-yellow-600 h-full w-full rounded-xl"></div>
       <div class="relative bg-gray-800 text-gray-50 rounded-xl p-8 space-y-7">
         <div class="h-2 w-20 bg-yellow-600"></div>
-
-          <span><% if @task.deadline == Date.today %>
+        <% if @task.done != true %>
+          <span><% if @task.deadline == Date.today%>
                       <div class = "w-16 mt-4 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Due Date!</div>
                   <% elsif @task.deadline < Date.today%>
                       <div class = "w-16 mt-4 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Past Due!</div>
                   <% else @task.deadline > Date.today%>
-                      <div class = "w-20 mt-4 rounded text-xs text-center text-white ring ring-green-400 p-1">In Progress</div>
+                      <div class = "w-20 mt-4 rounded text-xs text-center text-green-400 ring ring-green-400 p-1">In Progress</div>
                   <%end%></span>
+        <% else @task.done == true %> 
+        <%end%>
               
-        <div class="text-5xl font-extrabold text-white truncate"><%= @task.name %></div>
-          <h1 class="leading-snug text-gray-400 truncate"><%= @task.description %></h1>
-          <p class="leading-snug text-gray-400"></i>Deadline : <%= @task.deadline.strftime("%B %d, %Y") %></p>
-          
+        <div class="text-5xl font-extrabold text-white truncate h-16"><%= @task.name %></div>
+          <h1 class="text-gray-400 truncate"><%= @task.description %></h1>
+          <p class="text-gray-400"></i>Deadline : <%= @task.deadline.strftime("%B %d, %Y") %></p>
+          <% if @task.done != true %>
+          <h4 class="py-1 text-lg text-red-500 font-bold">Pending Task</h4>
+          <% else %>
+          <h4 class="py-1 text-lg text-green-500 font-bold">Task Completed</h4>
+          <% end %>
+                    
         </div>
       </div>
   </div>
 
   <div class = "flex items-center justify-center p-10">
-    <%= link_to 'Back', category_path(@category), class: "px-4 py-2 text-base font-medium text-white leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-solid rounded-md shadow-sm hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2" %>
+    <%= link_to 'Back', category_tasks_path, class: "px-4 py-2 text-base font-medium text-white leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-solid rounded-md shadow-sm hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2" %>
   </div>

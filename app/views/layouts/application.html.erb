@@ -31,7 +31,7 @@
       <nav>
         <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
           <% if user_signed_in?%>
-            <li><i class="fa fa-list text-yellow-500"></i><%= link_to 'Dashoard', categories_path(@category), class: "m-4 font-bold text-xl leading-6 text-white hover:text-yellow-500" %></li>
+            <li><i class="fa fa-list text-yellow-500"></i><%= link_to 'Dashboard', categories_path(@category), class: "m-4 font-bold text-xl leading-6 text-white hover:text-yellow-500" %></li>
             <li><i class="fa fa-plus text-yellow-500"></i><a href="#_" ><%= link_to 'New Category', new_category_path(@category), class: "m-4 font-bold text-xl leading-6 text-white hover:text-yellow-500" %></li>
             <li><%= link_to 'Profile', edit_user_registration_path, class: "m-4 inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2" %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "m-4 inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-offset-2" %></li>

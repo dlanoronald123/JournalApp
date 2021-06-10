@@ -33,6 +33,11 @@
         <% end %>
       </div>
 
+      <div class="mb-6 mt-6">
+        <label for="done" class="mr-6 font-bold text-white"><%= f.label :done %></label>
+        <%= f.check_box :done, class: "h-5 w-5" %>
+      </div>
+
       <div class="flex w-full mt-8">
             <%= f.submit 'Update', class: "px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-yellow-500 border border-transparent rounded-md shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2" %>
       </div>

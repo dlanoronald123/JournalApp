@@ -4,57 +4,61 @@
         <%= image_tag("work-in-progress-animate.svg", :alt => "rss feed") %>
     </div> 
     <div class="w-full  p-8">
-        <h1 class="md:text-4xl font-bold text-gray-800 text-center">Add Category</span> now!</h1>
+        <%= link_to "Add Category now!", new_category_task_path(@category), class:"text-white text-4xl font-bold hover:text-blue-200" %>
     </div>
 </div>
 
 <% else %>
 
-<section class="leading-7 max-w-6xl  px-8 mx-14 my-5">
- <div class="container w-full py-4 pb-5  text-white">
-    <% @categories.any? do |category| %>
-         <% category.tasks.any? do |task| 
-                if task.deadline == Date.today %> 
-                <h2 id="title1" class="md:text-4xl font-bold text-gray-800">Task for today :</h2>
+
+
+<div class="w-11/12 mx-auto mt-4 rounded">
+        <!-- Tabs -->
+    <ul id="tabs" class="inline-flex w-full px-1 pt-2 ">
+        <li id="title1" class="px-4 py-2 -mb-px text-white sm:text-4xl font-bold  border-b-8 border-gray-800 rounded-t">Task for Today!</li>
+    </ul>  
+    <div id="tab-contents">
+        <div id="first" class="p-4 bg-yellow-500 bg-opacity-20 rounded-xl">
+            <section class="flex flex-wrap content-start justify-center">
+                <% @categories.each do |category| %>
+                    <% category.tasks.all.select do |task| %>
+                        <% if task.deadline == Date.today %> 
+                            <div class="rounded-xl transform transition duration-500 hover:scale-105 ">
+                                <div class="bg-gradient-to-t from-black via-gray-800 to-gray-800 w-80 border-l-8 border-yellow-500 rounded-lg flex mx-2.5 my-2.5">
+                                    <div class="w-1/3 pt-6 flex justify-center text-yellow-600 text-4xl pl-4">
+                                        <i class="fa fa-thumbtack"></i>
+                                    </div>
+
+                                    <div class="w-full p-1 pl-4 h-full">
+                                            <span><% if task.deadline == Date.today %>
+                                                <div class = "w-16 my-1 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Due Date!</div>
+                                            <% elsif task.deadline < Date.today%>
+                                                <div class = "w-16 my-1 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Past Due!</div>
+                                            <% else task.deadline > Date.today%>
+                                                <div class = "w-20 my-1 rounded text-xs text-center text-green-400 ring ring-green-400 p-1">In Progress</div>
+                                            <%end%></span>
+
+                                        <h1 class="font-bold text-white italic text-3xl"><%= task.name %></h1>
+                                        <p class="py-1 text-white text-xl"><%= task.description %></p>
+                                        <h4 class="py-1 text-sm text-white">Deadline: <%= task.deadline.strftime(" %B %d, %Y") %></h4>
+                                        <%= link_to category_task_path(category.id, task.id),class:"py-4 text-white text-xl hover:text-blue-800" do %><i class="fa fa-eye"></i><%end%>
+                                        <%= link_to edit_category_task_path(category.id, task.id),class:"pl-4 text-white text-xl hover:text-green-800" do %><i class="fa fa-cog"></i><%end%>
+                                        <%= link_to category_task_path(category.id, task.id), method: :delete, data: {confirm: "Are you sure?" },class:"pl-4 text-white text-xl hover:text-red-800" do %><i class="fa fa-trash"></i><% end %>
+                                    </div>   
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
                 <% end %>
-        <% end %>
-    <% end %>
-  </div>    
-    <div class ="flex flex-wrap content-start justify-around">
-        <% @categories.each do |category| %>
-            <% category.tasks.all.select do |task| %>
-                <% if task.deadline == Date.today %>   
-                <div class="rounded-xl transform transition duration-500 hover:scale-105 ">
-                    <div class="bg-gradient-to-t from-black via-gray-800 to-gray-800 w-80 border-l-8 border-yellow-500 rounded-lg flex mx-2.5 my-2.5">
-                        <div class="w-1/3 pt-6 flex justify-center text-yellow-600 text-4xl pl-4">
-                            <i class="fa fa-thumbtack"></i>
-                            
-                        </div>
-                        <div class="w-full p-1 pl-4 h-full">
-                        <span><% if task.deadline == Date.today %>
-                                    <div class = "w-16 my-1 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Due Date!</div>
-                                <% elsif task.deadline < Date.today%>
-                                    <div class = "w-16 my-1 rounded text-xs text-center text-red-400 ring ring-red-400 p-1">Past Due!</div>
-                                <% else task.deadline > Date.today%>
-                                    <div class = "w-20 my-1 rounded text-xs text-center text-white ring ring-green-400 p-1">In Progress</div>
-                                <%end%></span>
-                            <h1 class="font-bold text-white italic text-3xl"><%= task.name %></h1>
-                            <p class="py-1 text-white text-xl"><%= task.description %></p>
-                            <h4 class="py-1 text-sm text-white">Deadline: <%= task.deadline.strftime(" %B %d, %Y") %></h4>
-                            <%= link_to category_task_path(category, task),class:"py-4 text-white text-xl hover:text-blue-800" do %><i class="fa fa-eye"></i><%end%>
-                            <%= link_to edit_category_task_path(category, task),class:"pl-4 text-white text-xl hover:text-green-800" do %><i class="fa fa-cog"></i><%end%>
-                            <%= link_to category_task_path(category, task), method: :delete, data: {confirm: "Are you sure?" },class:"pl-4 text-white text-xl hover:text-red-800" do %><i class="fa fa-trash"></i><% end %>
-                        </div>   
-                    </div>
-                </div>  
-                <% end %>
-            <% end %>
-        <% end %>
+            </section>  
+        </div>
     </div>
-</section>
+</div>
+
+
 
 <section class="leading-7 max-w-6xl px-8 mx-14 my-5">
-    <h2 id="title1" class="text-white sm:text-4xl font-bold">Categories :</h2><br/>
+    <h2 id="title1" class="text-white sm:text-4xl font-bold">Categories :</h2>
         <% @categories.each do |category| %>
             <section class="leading-7 bg-yellow-500 max-w-6xl py-1 px-8 mx-14 shadow-2xl rounded-lg my-5 border-3 border-gray-800">
                 <div class="max-w-6xl px-4 mx-auto border-solid lg:px-12">
@@ -68,7 +72,11 @@
                                 <%= category.description%>
                             </p>
                         </div>
-                            <h1 class="text-right text-2xl pr-8 font-bold"> Pending task : <%= category.tasks.count %></h1>
+                         <% if category.tasks.count == 1%>
+                            <h1 class="text-right text-2xl pr-8 font-bold"> Task Created : <%= category.tasks.count %></h1>
+                         <% else %>   
+                            <h1 class="text-right text-2xl pr-8 font-bold"> Tasks Created: <%= category.tasks.count %></h1>
+                         <% end %>
                             <%= link_to category, method: :get, class: "mr-5 text-2xl  text-white hover:text-blue-800" do %><i class="fa fa-eye"></i><%end%>
                             <%= link_to category_path(category), method: :delete, class: "mr-5 text-2xl  text-white hover:text-red-800" do %><i class="fa fa-trash"></i><% end %>
                     </div>
@@ -78,12 +86,5 @@
 </section>
 
 <% end %>
-
-
-
-
-
-
-
 
 
