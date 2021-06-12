@@ -72,7 +72,7 @@
                                 <%= category.description%>
                             </p>
                         </div>
-                         <% if category.tasks.count == 1%>
+                         <% if category.tasks.count == 1 || category.tasks.count == 0 %>
                             <h1 class="text-right text-2xl pr-8 font-bold"> Task Created : <%= category.tasks.count %></h1>
                          <% else %>   
                             <h1 class="text-right text-2xl pr-8 font-bold"> Tasks Created: <%= category.tasks.count %></h1>
